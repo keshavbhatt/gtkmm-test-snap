@@ -16,7 +16,7 @@ architectures:
 
 apps:
    kite:
-     command: kite
+     command: desktop-launch kite
      plugs:
          - desktop
          - desktop-legacy
@@ -24,6 +24,8 @@ apps:
          - home
          - wayland
          - x11
+     slots:
+         - dbus-kite
          
 plugs:
        gtk-3-themes:
@@ -42,6 +44,11 @@ plugs:
                 interface: content
                 target: $SNAP/gnome-platform
                 default-provider: gnome-3-28-1804
+slots:
+  dbus-kite:
+    interface: dbus
+    bus: session
+    name: org.ubuntu.kite.application
 parts:
   app:
     source: .
@@ -49,5 +56,3 @@ parts:
     build-packages:
             - build-essential
             - libgtkmm-3.0-dev
-    stage-packages:
-            - libgtkmm-3.0-1v5
