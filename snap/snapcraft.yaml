@@ -19,9 +19,6 @@ environment:
 apps:
    kite:
      command: kite
-     command-chain:
-          - snap/command-chain/snapcraft-runner
-          - snap/command-chain/desktop-launch
      plugs:
          - desktop
          - desktop-legacy
