@@ -18,7 +18,7 @@ environment:
 
 apps:
    kite:
-     command: kite
+     command: bin/kite
      plugs:
          - desktop
          - desktop-legacy
@@ -27,7 +27,7 @@ apps:
          - wayland
          - x11
      slots:
-         - dbus-kite
+         - dbus-daemon
          
 plugs:
        gtk-3-themes:
@@ -47,7 +47,7 @@ plugs:
                 target: $SNAP/gnome-platform
                 default-provider: gnome-3-28-1804
 slots:
-  dbus-kite:
+  dbus-daemon:
     interface: dbus
     bus: session
     name: org.ubuntu.kite.application
@@ -58,3 +58,5 @@ parts:
     build-packages:
             - build-essential
             - libgtkmm-3.0-dev
+    stage-packages:
+            - libgtkmm-3.0-1v5
