@@ -24,4 +24,5 @@ parts:
     source: .
     plugin: cmake
     build-packages:
-            - g++
+            - build-essential
+            - libgtkmm-3.0-dev
